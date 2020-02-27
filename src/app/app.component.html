@@ -1,5 +1,4 @@
 <ng-container *ngIf="teamDataResponse$ | async as data; else loading">
-  <h1>{{data.ranking.length}}</h1>
 <app-scoreboard class="scoreboard"
                 [rankingItems]="data.ranking">
 </app-scoreboard>

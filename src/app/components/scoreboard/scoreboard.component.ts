@@ -25,7 +25,7 @@ export class ScoreboardComponent implements OnInit, OnDestroy, OnChanges {
   switchPageSubscription: Subscription;
 
   showPage = new BehaviorSubject(1);
-  pageSwitchTimeout = 20;
+  pageSwitchTimeout = 30;
 
   constructor() {
   }

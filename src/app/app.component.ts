@@ -9,7 +9,7 @@ import {map, take} from "rxjs/operators";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  fetchDataAfterSeconds = 40;
+  fetchDataAfterSeconds = 120;
 
   dataFetchSubscription: Subscription;
   teamDataResponse$: Observable<TeamDataResponse>;

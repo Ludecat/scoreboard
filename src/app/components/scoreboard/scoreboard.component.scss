@@ -2,29 +2,39 @@
   text-align: center;
 }
 
-.scoreboard-wrapper {
-  padding: 0 50px;
+.table-item {
+  background-color: #00000020;
+
+  &.first-rank {
+    background-color: goldenrod;
+    border: #00000020 solid 1px;
+  }
+
+  &.second-rank {
+    background-color: silver;
+    border: #00000020 solid 1px;
+  }
+
+  &.third-rank {
+    background-color: #b87333;
+    border: #00000020 solid 1px;
+  }
 }
 
-.header {
-  font-size: 3em;
-}
 
 .table-header, .table-item {
   display: flex;
   flex-direction: row;
-  height: 4.3vh;
-  padding: 0 10px;
+  padding: 0 1vw;
 }
 
 .table-header {
-  font-size: 1.5em;
+  font-size: 3vh;
 }
 
 .table-item {
-  background-color: #00000020;
-  margin: 5px;
-  font-size: 2em;
+  margin: 0.3vw;
+  font-size: 3vh;
 }
 
 .table-rank {
@@ -47,18 +57,52 @@
   margin: auto;
 }
 
+// desktop
+@media (min-width:801px) {
+  .scoreboard-wrapper {
+    padding: 0 4vw;
+  }
 
-.first-rank {
-  background-color: goldenrod;
-  border: #00000020 solid 1px;
+  .header {
+    font-size: 5vh;
+  }
+
+  .table-header, .table-item {
+    display: flex;
+    flex-direction: row;
+    height: 4.3vh;
+    padding: 0 1vw;
+  }
+
+  .table-rank {
+    flex: 1;
+    margin: auto;
+  }
+
+  .table-teamname {
+    flex: 4;
+    margin: auto;
+  }
+
+  .table-points {
+    flex: 2;
+    margin: auto;
+  }
+
+  .table-matches {
+    flex: 3;
+    margin: auto;
+  }
 }
 
-.second-rank {
-  background-color: silver;
-  border: #00000020 solid 1px;
-}
+@media (max-width:800px) {
+  .header {
+    font-size: 8vh;
+    height: 10vh;
+  }
 
-.third-rank {
-  background-color: #b87333;
-  border: #00000020 solid 1px;
+  .table-item {
+    padding: 1vh 0;
+    margin: 1vh 0;
+  }
 }

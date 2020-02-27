@@ -1,19 +1,223 @@
 {
   "ranking": [
     {
-      "name": "Team 1",
+      "name": "Teamname",
       "logo": "https://via.placeholder.com/150C/O",
-      "points": 5,
+      "points": 5.5,
       "played": 3
     },
     {
-      "name": "Team 2",
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
+      "logo": "https://via.placeholder.com/150C/O",
+      "points": 5.5,
+      "played": 3
+    },
+    {
+      "name": "Teamname",
       "logo": "https://via.placeholder.com/150C/O",
       "points": 5.5,
       "played": 3
     }
   ],
   "ludecamp": [
+    {
+      "name": "Team 1",
+      "logo": "https://via.placeholder.com/150C/O"
+    },
+    {
+      "name": "Team 1",
+      "logo": "https://via.placeholder.com/150C/O"
+    },
+    {
+      "name": "Team 1",
+      "logo": "https://via.placeholder.com/150C/O"
+    },
+    {
+      "name": "Team 1",
+      "logo": "https://via.placeholder.com/150C/O"
+    },
+    {
+      "name": "Team 1",
+      "logo": "https://via.placeholder.com/150C/O"
+    },
+    {
+      "name": "Team 1",
+      "logo": "https://via.placeholder.com/150C/O"
+    },
     {
       "name": "Team 1",
       "logo": "https://via.placeholder.com/150C/O"
