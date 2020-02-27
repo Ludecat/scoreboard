@@ -4,13 +4,6 @@
   background-color: black;
 }
 
-
-.header {
-  color: white;
-  background-color: black;
-}
-
-
 .scoreboard {
   background-color: #cca300;
 }
@@ -19,16 +12,12 @@
   background-color: black;
 }
 
-.loading {
-  color: white;
-}
-
-@media (max-width:800px){
+@media (max-width: 800px) {
 
 }
 
 // desktop
-@media (min-width:801px) {
+@media (min-width: 801px) {
   :host {
     position: absolute;
     top: 0;

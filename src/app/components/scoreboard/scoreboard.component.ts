@@ -10,13 +10,10 @@ import {BehaviorSubject, interval, Subscription} from "rxjs";
 export class ScoreboardComponent implements OnInit, OnDestroy {
   @Input()
   set rankingItems(value) {
-    // set the latest value for _data BehaviorSubject
-    console.log('XXXXXXXXXXXXXXXXX', value);
     this._rankingItems.next(value);
   };
 
   get rankingItems() {
-    // get the latest value from _data BehaviorSubject
     return this._rankingItems.getValue();
   }
 

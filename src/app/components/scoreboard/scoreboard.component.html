@@ -13,7 +13,8 @@
       <!-- Matches played -->
       <h3 class="table-matches">Matches played</h3>
     </div>
-    <div class="hide-on-desktop">
+    <ng-container *ngIf="rankingItems">
+      <div class="hide-on-desktop">
         <ng-container *ngFor="let item of rankingItems; let i = index">
           <div class="table-item"
                [class.first-rank]="i == 0"
@@ -26,48 +27,49 @@
             <div class="table-matches">{{item.played}}</div>
           </div>
         </ng-container>
-    </div>
-    <div class="hide-on-mobile">
-    <ng-container *ngIf="rankingItems.length <= 16; else over16Teams">
-      <ng-container *ngFor="let item of rankingItems; let i = index">
-        <div class="table-item"
-             [class.first-rank]="i == 0"
-             [class.second-rank]="i == 1"
-             [class.third-rank]="i == 2"
-        >
-          <div class="table-rank">{{i + 1}}</div>
-          <div class="table-teamname">{{item.name}}</div>
-          <div class="table-points">{{item.points}}</div>
-          <div class="table-matches">{{item.played}}</div>
-        </div>
-      </ng-container>
+      </div>
+      <div class="hide-on-mobile">
+        <ng-container *ngIf="rankingItems.length <= 16; else over16Teams">
+          <ng-container *ngFor="let item of rankingItems; let i = index">
+            <div class="table-item"
+                 [class.first-rank]="i == 0"
+                 [class.second-rank]="i == 1"
+                 [class.third-rank]="i == 2"
+            >
+              <div class="table-rank">{{i + 1}}</div>
+              <div class="table-teamname">{{item.name}}</div>
+              <div class="table-points">{{item.points}}</div>
+              <div class="table-matches">{{item.played}}</div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <ng-template #over16Teams>
+          <ng-container *ngIf="(showPage | async) == 1">
+            <ng-container *ngFor="let item of rankingItems; let i = index">
+              <div *ngIf="i < rankingItems.length/2" class="table-item"
+                   [class.first-rank]="i == 0"
+                   [class.second-rank]="i == 1"
+                   [class.third-rank]="i == 2"
+              >
+                <div class="table-rank">{{i + 1}}</div>
+                <div class="table-teamname">{{item.name}}</div>
+                <div class="table-points">{{item.points}}</div>
+                <div class="table-matches">{{item.played}}</div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="(showPage | async) == 2">
+            <ng-container *ngFor="let item of rankingItems; let i = index">
+              <div *ngIf="i >= rankingItems.length/2" class="table-item">
+                <div class="table-rank">{{i + 1}}</div>
+                <div class="table-teamname">{{item.name}}</div>
+                <div class="table-points">{{item.points}}</div>
+                <div class="table-matches">{{item.played}}</div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </ng-template>
+      </div>
     </ng-container>
-    <ng-template #over16Teams>
-      <ng-container *ngIf="(showPage | async) == 1">
-        <ng-container *ngFor="let item of rankingItems; let i = index">
-          <div *ngIf="i < rankingItems.length/2" class="table-item"
-               [class.first-rank]="i == 0"
-               [class.second-rank]="i == 1"
-               [class.third-rank]="i == 2"
-          >
-            <div class="table-rank">{{i + 1}}</div>
-            <div class="table-teamname">{{item.name}}</div>
-            <div class="table-points">{{item.points}}</div>
-            <div class="table-matches">{{item.played}}</div>
-          </div>
-        </ng-container>
-      </ng-container>
-      <ng-container *ngIf="(showPage | async) == 2">
-        <ng-container *ngFor="let item of rankingItems; let i = index">
-          <div *ngIf="i >= rankingItems.length/2" class="table-item">
-            <div class="table-rank">{{i + 1}}</div>
-            <div class="table-teamname">{{item.name}}</div>
-            <div class="table-points">{{item.points}}</div>
-            <div class="table-matches">{{item.played}}</div>
-          </div>
-        </ng-container>
-      </ng-container>
-    </ng-template>
-    </div>
   </ng-container>
 </div>

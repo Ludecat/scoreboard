@@ -1,18 +1,24 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {LudecampItem} from "../../interfaces/ludecamp-item";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-ludecamp',
   templateUrl: './ludecamp.component.html',
   styleUrls: ['./ludecamp.component.scss']
 })
-export class LudecampComponent implements OnInit {
+export class LudecampComponent {
   @Input()
-  public ludecampItems: LudecampItem[];
+  set ludecampItems(value) {
+    this._ludecampItems.next(value);
+  };
 
-  constructor() { }
-
-  ngOnInit(): void {
+  get ludecampItems() {
+    return this._ludecampItems.getValue();
   }
 
+  private _ludecampItems = new BehaviorSubject<LudecampItem[]>([]);
+
+  constructor() {
+  }
 }

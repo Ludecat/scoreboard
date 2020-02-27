@@ -3,6 +3,7 @@ import {interval, Observable, Subscription} from "rxjs";
 import {TeamDataResponse, TeamDataService} from "./services/team-data.service";
 import {map, take} from "rxjs/operators";
 import {LudecampItem} from "./interfaces/ludecamp-item";
+import {RankingItem} from "./interfaces/ranking-item";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,10 @@ import {LudecampItem} from "./interfaces/ludecamp-item";
 })
 export class AppComponent implements OnInit, OnDestroy {
   fetchDataAfterSeconds = 120;
-  ludecampFetchAfterSeconds = 30;
+  ludecampFetchAfterSeconds = 10;
 
   subscriptions: Subscription[] = [];
-  teamDataResponse$: Observable<TeamDataResponse>;
+  rankingData$: Observable<RankingItem[]>;
   ludecampData$: Observable<LudecampItem[]>;
 
   constructor(private teamDataService: TeamDataService,
@@ -37,18 +38,16 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   fetchAllData(): void {
-    this.teamDataResponse$ = this.teamDataService.getTeamdata().pipe(take(1),
+    this.rankingData$ = this.teamDataService.getTeamdata().pipe(take(1),
       map(value => {
-        console.log(value);
         this.ref.detectChanges();
-        return value;
+        return value.ranking;
       }));
   }
 
   fetchLudecamp(): void {
     this.ludecampData$ = this.teamDataService.getTeamdata().pipe(take(1),
       map(value => {
-        console.log(value);
         this.ref.detectChanges();
         return value.ludecamp;
       }));
