@@ -1,0 +1,52 @@
+{
+  "ranking": [
+    {
+      "name": "Team 1",
+      "logo": "https://example.com/test.png",
+      "points": 5,
+      "played": 3
+    },
+    {
+      "name": "Team 2",
+      "logo": "https://example.com/test.png",
+      "points": 5.5,
+      "played": 3
+    }
+  ],
+  "ludecamp": [
+    {
+      "name": "Team 1",
+      "logo": "https://example.com/test.png"
+    },
+    {
+      "name": "Team 2",
+      "logo": "https://example.com/test.png"
+    }
+  ],
+  "gameplan": [
+    {
+      "round": 0,
+      "teams": [
+        {
+          "name": "Team 1"
+        },
+        {
+          "name": "Team 2"
+        }
+      ],
+      "time": 1582910400
+    },
+    {
+      "round": 1,
+      "teams": [
+        {
+          "name": "Team 5"
+        },
+        {
+          "name": "Team 6"
+        }
+      ],
+      "time": 1582910700
+    }
+  ]
+}

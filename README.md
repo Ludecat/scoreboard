@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4acbd1a-2466-450d-abfc-bcbd17599365/deploy-status)](https://app.netlify.com/sites/heuristic-saha-2dfe1a/deploys)
+
 # Scoreboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.

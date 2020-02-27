@@ -23,17 +23,17 @@
           <div class="table-rank">{{i + 1}}</div>
           <div class="table-teamname">{{item.name}}</div>
           <div class="table-points">{{item.points}}</div>
-          <div class="table-matches">{{item.gamesPlayed}}</div>
+          <div class="table-matches">{{item.played}}</div>
         </div>
       </ng-container>
     </ng-container>
     <ng-container *ngIf="(showPage | async) == 2">
       <ng-container *ngFor="let item of teamItems; let i = index">
         <div *ngIf="i >= teamItems.length/2" class="table-item">
-          <div class="table-rank">{{i + 17}}</div>
+          <div class="table-rank">{{i + 1}}</div>
           <div class="table-teamname">{{item.name}}</div>
           <div class="table-points">{{item.points}}</div>
-          <div class="table-matches">{{item.gamesPlayed}}</div>
+          <div class="table-matches">{{item.played}}</div>
         </div>
       </ng-container>
     </ng-container>

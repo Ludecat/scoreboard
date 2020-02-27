@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TeamItem} from "../../interfaces/team-item";
+import {LudecampItem} from "../../interfaces/ludecamp-item";
 
 @Component({
   selector: 'app-ludecamp',
@@ -8,7 +8,7 @@ import {TeamItem} from "../../interfaces/team-item";
 })
 export class LudecampComponent implements OnInit {
   @Input()
-  public teamItems: Array<TeamItem>;
+  public teamItems: Array<LudecampItem>;
 
   constructor() { }
 

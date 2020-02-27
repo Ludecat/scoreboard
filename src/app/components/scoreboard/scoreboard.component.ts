@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {TeamItem} from "../../interfaces/team-item";
+import {RankingItem} from "../../interfaces/ranking-item";
 import {BehaviorSubject, interval, Subscription} from "rxjs";
 
 @Component({
@@ -9,12 +9,12 @@ import {BehaviorSubject, interval, Subscription} from "rxjs";
 })
 export class ScoreboardComponent implements OnInit, OnDestroy {
   @Input()
-  public teamItems: Array<TeamItem>;
+  public teamItems: Array<RankingItem>;
 
   switchPageSubscription: Subscription;
 
   showPage = new BehaviorSubject(1);
-  pageSwitchTimeout = 1000;
+  pageSwitchTimeout = 20;
 
   constructor() {
   }
@@ -23,7 +23,7 @@ export class ScoreboardComponent implements OnInit, OnDestroy {
     this.showPage.next(1);
     this.switchPageSubscription = interval(1000 * this.pageSwitchTimeout)
       .subscribe(() => {
-        // this.showPage.next(this.showPage.getValue() == 1 ? 2 : 1);
+        this.showPage.next(this.showPage.getValue() == 1 ? 2 : 1);
       });
   }
 
