@@ -12,7 +12,7 @@ import {RankingItem} from "./interfaces/ranking-item";
 })
 export class AppComponent implements OnInit, OnDestroy {
   fetchDataAfterSeconds = 120;
-  ludecampFetchAfterSeconds = 10;
+  ludecampFetchAfterSeconds = 30;
 
   subscriptions: Subscription[] = [];
   rankingData$: Observable<RankingItem[]>;
