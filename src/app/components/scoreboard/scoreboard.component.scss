@@ -1,0 +1,64 @@
+:host {
+  text-align: center;
+}
+
+.scoreboard-wrapper {
+  padding: 0 50px;
+}
+
+.header {
+  font-size: 3em;
+}
+
+.table-header, .table-item {
+  display: flex;
+  flex-direction: row;
+  height: 4.3vh;
+  padding: 0 10px;
+}
+
+.table-header {
+  font-size: 1.5em;
+}
+
+.table-item {
+  background-color: #00000020;
+  margin: 5px;
+  font-size: 2em;
+}
+
+.table-rank {
+  flex: 1;
+  margin: auto;
+}
+
+.table-teamname {
+  flex: 5;
+  margin: auto;
+}
+
+.table-points {
+  flex: 2;
+  margin: auto;
+}
+
+.table-matches {
+  flex: 2;
+  margin: auto;
+}
+
+
+.first-rank {
+  background-color: goldenrod;
+  border: #00000020 solid 1px;
+}
+
+.second-rank {
+  background-color: silver;
+  border: #00000020 solid 1px;
+}
+
+.third-rank {
+  background-color: #b87333;
+  border: #00000020 solid 1px;
+}

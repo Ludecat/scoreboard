@@ -1,0 +1,50 @@
+:host {
+  text-align: center;
+  color: white;
+}
+
+.header {
+  font-size: 3em;
+}
+
+.row-wrapper {
+  margin-top: 90px;
+}
+
+.row {
+  margin: 10px 40px;
+  background-color: #cca300;
+  font-size: 2.5em;
+
+  height: 8.6vh;
+  display: flex;
+  flex-direction: row;
+
+
+  .row-content {
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.logo-wrapper {
+  height: 100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-height: 90%;
+
+    &.left {
+      margin-left: 15%;
+    }
+
+    &.right {
+      margin-right: 15%;
+    }
+  }
+}

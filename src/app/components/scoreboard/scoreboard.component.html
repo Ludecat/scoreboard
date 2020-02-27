@@ -1,0 +1,41 @@
+<div class="scoreboard-wrapper">
+  <h2 class="header">Scoreboard</h2>
+  <ng-container class="table">
+    <div class="table-header">
+      <h3 class="table-rank"></h3>
+
+      <!-- Teamname(empty) -->
+      <h3 class="table-teamname"></h3>
+
+      <!-- POINTS (displayed) -->
+      <h3 class="table-points">Points</h3>
+
+      <!-- Matches played -->
+      <h3 class="table-matches">Matches played</h3>
+    </div>
+    <ng-container *ngIf="(showPage | async) == 1">
+      <ng-container *ngFor="let item of teamItems; let i = index">
+        <div *ngIf="i < teamItems.length/2" class="table-item"
+             [class.first-rank]="i == 0"
+             [class.second-rank]="i == 1"
+             [class.third-rank]="i == 2"
+        >
+          <div class="table-rank">{{i + 1}}</div>
+          <div class="table-teamname">{{item.name}}</div>
+          <div class="table-points">{{item.points}}</div>
+          <div class="table-matches">{{item.gamesPlayed}}</div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="(showPage | async) == 2">
+      <ng-container *ngFor="let item of teamItems; let i = index">
+        <div *ngIf="i >= teamItems.length/2" class="table-item">
+          <div class="table-rank">{{i + 17}}</div>
+          <div class="table-teamname">{{item.name}}</div>
+          <div class="table-points">{{item.points}}</div>
+          <div class="table-matches">{{item.gamesPlayed}}</div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>
