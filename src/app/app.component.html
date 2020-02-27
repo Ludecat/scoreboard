@@ -1,9 +1,10 @@
 <ng-container *ngIf="teamDataResponse$ | async as data; else loading">
-<app-scoreboard class="scoreboard"
-                [rankingItems]="data.ranking">
-</app-scoreboard>
-<app-ludecamp class="ludecamp"
-              [ludecampItems]="data.ludecamp">
-</app-ludecamp>
+  <app-scoreboard class="scoreboard"
+                  [rankingItems]="data.ranking">
+  </app-scoreboard>
+  <app-ludecamp *ngIf="ludecampData$ | async as ludecampData"
+                class="ludecamp"
+                [ludecampItems]="ludecampData">
+  </app-ludecamp>
 </ng-container>
 <ng-template #loading><h1 class="loading">loading...</h1></ng-template>

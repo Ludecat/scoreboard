@@ -2,6 +2,7 @@ import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {interval, Observable, Subscription} from "rxjs";
 import {TeamDataResponse, TeamDataService} from "./services/team-data.service";
 import {map, take} from "rxjs/operators";
+import {LudecampItem} from "./interfaces/ludecamp-item";
 
 @Component({
   selector: 'app-root',
@@ -10,31 +11,46 @@ import {map, take} from "rxjs/operators";
 })
 export class AppComponent implements OnInit, OnDestroy {
   fetchDataAfterSeconds = 120;
+  ludecampFetchAfterSeconds = 30;
 
-  dataFetchSubscription: Subscription;
+  subscriptions: Subscription[] = [];
   teamDataResponse$: Observable<TeamDataResponse>;
+  ludecampData$: Observable<LudecampItem[]>;
 
   constructor(private teamDataService: TeamDataService,
               private ref: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
-    this.fetchData();
-    this.dataFetchSubscription = interval(1000 * this.fetchDataAfterSeconds)
-      .subscribe(() => this.fetchData());
+    this.fetchAllData();
+    this.fetchLudecamp();
+    this.subscriptions.push(interval(1000 * this.fetchDataAfterSeconds)
+      .subscribe(() => this.fetchAllData()));
+    this.subscriptions.push(interval(1000 * this.ludecampFetchAfterSeconds)
+      .subscribe(() => this.fetchLudecamp()));
   }
 
   ngOnDestroy(): void {
-    this.dataFetchSubscription.unsubscribe();
+    for (let subscription of this.subscriptions) {
+      subscription.unsubscribe();
+    }
   }
 
-  fetchData(): void {
-
+  fetchAllData(): void {
     this.teamDataResponse$ = this.teamDataService.getTeamdata().pipe(take(1),
       map(value => {
         console.log(value);
         this.ref.detectChanges();
         return value;
+      }));
+  }
+
+  fetchLudecamp(): void {
+    this.ludecampData$ = this.teamDataService.getTeamdata().pipe(take(1),
+      map(value => {
+        console.log(value);
+        this.ref.detectChanges();
+        return value.ludecamp;
       }));
   }
 

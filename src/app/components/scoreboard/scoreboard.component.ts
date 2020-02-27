@@ -7,7 +7,7 @@ import {BehaviorSubject, interval, Subscription} from "rxjs";
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.scss']
 })
-export class ScoreboardComponent implements OnInit, OnDestroy, OnChanges {
+export class ScoreboardComponent implements OnInit, OnDestroy {
   @Input()
   set rankingItems(value) {
     // set the latest value for _data BehaviorSubject
@@ -40,9 +40,5 @@ export class ScoreboardComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnDestroy(): void {
     this.switchPageSubscription.unsubscribe();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
   }
 }
