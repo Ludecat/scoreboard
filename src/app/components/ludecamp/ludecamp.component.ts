@@ -8,7 +8,7 @@ import {LudecampItem} from "../../interfaces/ludecamp-item";
 })
 export class LudecampComponent implements OnInit {
   @Input()
-  public teamItems: Array<LudecampItem>;
+  public ludecampItems: LudecampItem[];
 
   constructor() { }
 

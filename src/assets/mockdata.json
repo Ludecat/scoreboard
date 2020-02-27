@@ -2,13 +2,13 @@
   "ranking": [
     {
       "name": "Team 1",
-      "logo": "https://example.com/test.png",
+      "logo": "https://via.placeholder.com/150C/O",
       "points": 5,
       "played": 3
     },
     {
       "name": "Team 2",
-      "logo": "https://example.com/test.png",
+      "logo": "https://via.placeholder.com/150C/O",
       "points": 5.5,
       "played": 3
     }
@@ -16,11 +16,11 @@
   "ludecamp": [
     {
       "name": "Team 1",
-      "logo": "https://example.com/test.png"
+      "logo": "https://via.placeholder.com/150C/O"
     },
     {
       "name": "Team 2",
-      "logo": "https://example.com/test.png"
+      "logo": "https://via.placeholder.com/150C/O"
     }
   ],
   "gameplan": [

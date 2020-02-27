@@ -6,8 +6,8 @@ import {LudecampItem} from "../interfaces/ludecamp-item";
 import {GameplanItem} from "../interfaces/gameplan-item";
 
 export interface TeamDataResponse {
-  rankings: RankingItem[],
-  ludecampItems: LudecampItem[],
+  ranking: RankingItem[],
+  ludecamp: LudecampItem[],
   gameplan: GameplanItem[]
 }
 

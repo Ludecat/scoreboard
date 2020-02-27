@@ -1,9 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RankingItem} from "./interfaces/ranking-item";
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {interval, Observable, Subscription} from "rxjs";
-import {LudecampItem} from "./interfaces/ludecamp-item";
 import {TeamDataResponse, TeamDataService} from "./services/team-data.service";
-import {map, switchMap, take} from "rxjs/operators";
+import {map, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -13,12 +11,11 @@ import {map, switchMap, take} from "rxjs/operators";
 export class AppComponent implements OnInit, OnDestroy {
   fetchDataAfterSeconds = 40;
 
-  scoreboardElements: Array<RankingItem> = new Array<RankingItem>();
-  ludecampElements: Array<LudecampItem> = new Array<LudecampItem>();
-
   dataFetchSubscription: Subscription;
+  teamDataResponse$: Observable<TeamDataResponse>;
 
-  constructor(private teamDataService: TeamDataService) {
+  constructor(private teamDataService: TeamDataService,
+              private ref: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -33,34 +30,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   fetchData(): void {
 
-    this.teamDataService.getTeamdata().pipe(
-      take(1),
-      map((value: TeamDataResponse) => {
+    this.teamDataResponse$ = this.teamDataService.getTeamdata().pipe(take(1),
+      map(value => {
         console.log(value);
+        this.ref.detectChanges();
+        return value;
       }));
-
-
-    /*
-        this.scoreboardElements = new Array<RankingItem>();
-        for (let i = 0; i < 32; i++) {
-          this.scoreboardElements.push({
-            points: this.randomInteger(0, 50),
-            logo: "https://via.placeholder.com/150C/O https://placeholder.com/",
-            name: `Team ${i}`,
-            played: 0
-          });
-        }
-        this.scoreboardElements.sort((n1, n2) => n2.points - n1.points);
-
-        this.ludecampElements = new Array<LudecampItem>();
-        for (let i = 0; i < 8; i++) {
-          this.ludecampElements.push({
-            logo: "https://via.placeholder.com/150C/O https://placeholder.com/",
-            name: `Team ${i}`,
-          });
-        }
-
-        */
   }
 
   randomInteger(min, max): number {

@@ -1,2 +1,10 @@
-<app-scoreboard class="scoreboard" [teamItems]="scoreboardElements"></app-scoreboard>
-<app-ludecamp class="ludecamp" [teamItems]="ludecampElements"></app-ludecamp>
+<ng-container *ngIf="teamDataResponse$ | async as data; else loading">
+  <h1>{{data.ranking.length}}</h1>
+<app-scoreboard class="scoreboard"
+                [rankingItems]="data.ranking">
+</app-scoreboard>
+<app-ludecamp class="ludecamp"
+              [ludecampItems]="data.ludecamp">
+</app-ludecamp>
+</ng-container>
+<ng-template #loading><h1 class="loading">loading...</h1></ng-template>

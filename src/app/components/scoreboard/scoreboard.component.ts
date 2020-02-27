@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {RankingItem} from "../../interfaces/ranking-item";
 import {BehaviorSubject, interval, Subscription} from "rxjs";
 
@@ -7,9 +7,20 @@ import {BehaviorSubject, interval, Subscription} from "rxjs";
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.scss']
 })
-export class ScoreboardComponent implements OnInit, OnDestroy {
+export class ScoreboardComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
-  public teamItems: Array<RankingItem>;
+  set rankingItems(value) {
+    // set the latest value for _data BehaviorSubject
+    console.log('XXXXXXXXXXXXXXXXX', value);
+    this._rankingItems.next(value);
+  };
+
+  get rankingItems() {
+    // get the latest value from _data BehaviorSubject
+    return this._rankingItems.getValue();
+  }
+
+  private _rankingItems = new BehaviorSubject<RankingItem[]>([]);
 
   switchPageSubscription: Subscription;
 
@@ -29,5 +40,9 @@ export class ScoreboardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.switchPageSubscription.unsubscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
   }
 }
