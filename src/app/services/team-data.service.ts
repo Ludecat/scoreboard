@@ -16,7 +16,8 @@ export interface TeamDataResponse {
 })
 export class TeamDataService {
   //url = 'assets/mockdata.json';
-  url = 'https://lc10data.herokuapp.com/scoreboard.json';
+  //url = 'https://lc10data.herokuapp.com/scoreboard.json';
+  url = 'https://lc10data-public.herokuapp.com/scoreboard.json';
 
   constructor(private http: HttpClient) { }
 
