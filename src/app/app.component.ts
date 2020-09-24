@@ -24,11 +24,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchAllData();
-    this.fetchLudecamp();
+    // this.fetchLudecamp();
     this.subscriptions.push(interval(1000 * this.fetchDataAfterSeconds)
       .subscribe(() => this.fetchAllData()));
-    this.subscriptions.push(interval(1000 * this.ludecampFetchAfterSeconds)
-      .subscribe(() => this.fetchLudecamp()));
+    // this.subscriptions.push(interval(1000 * this.ludecampFetchAfterSeconds)
+    //   .subscribe(() => this.fetchLudecamp()));
   }
 
   ngOnDestroy(): void {

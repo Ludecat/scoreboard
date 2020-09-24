@@ -13,7 +13,6 @@
 }
 
 @media (max-width: 800px) {
-
 }
 
 // desktop
@@ -28,18 +27,15 @@
     flex-direction: row;
   }
 
-
   .header {
     width: 100%;
-    padding: 20px 0;
     margin: 0;
     text-align: center;
     font-size: 3em;
   }
 
-
   .scoreboard {
-    width: 70%;
+    width: 100%;
 
     position: relative;
     top: 0;

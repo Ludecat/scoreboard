@@ -9,9 +9,6 @@
 
       <!-- POINTS (displayed) -->
       <h3 class="table-points">Points</h3>
-
-      <!-- Matches played -->
-      <h3 class="table-matches">Matches played</h3>
     </div>
     <ng-container *ngIf="rankingItems">
       <div class="hide-on-desktop">
@@ -22,9 +19,8 @@
                [class.third-rank]="i == 2"
           >
             <div class="table-rank">{{i + 1}}</div>
-            <div class="table-teamname">{{item.name}}</div>
+            <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
             <div class="table-points">{{item.points}}</div>
-            <div class="table-matches">{{item.played}}</div>
           </div>
         </ng-container>
       </div>
@@ -37,9 +33,8 @@
                  [class.third-rank]="i == 2"
             >
               <div class="table-rank">{{i + 1}}</div>
-              <div class="table-teamname">{{item.name}}</div>
+              <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
               <div class="table-points">{{item.points}}</div>
-              <div class="table-matches">{{item.played}}</div>
             </div>
           </ng-container>
         </ng-container>
@@ -52,9 +47,8 @@
                    [class.third-rank]="i == 2"
               >
                 <div class="table-rank">{{i + 1}}</div>
-                <div class="table-teamname">{{item.name}}</div>
+                <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
                 <div class="table-points">{{item.points}}</div>
-                <div class="table-matches">{{item.played}}</div>
               </div>
             </ng-container>
           </ng-container>
@@ -62,9 +56,8 @@
             <ng-container *ngFor="let item of rankingItems; let i = index">
               <div *ngIf="i >= rankingItems.length/2" class="table-item">
                 <div class="table-rank">{{i + 1}}</div>
-                <div class="table-teamname">{{item.name}}</div>
+                <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
                 <div class="table-points">{{item.points}}</div>
-                <div class="table-matches">{{item.played}}</div>
               </div>
             </ng-container>
           </ng-container>
