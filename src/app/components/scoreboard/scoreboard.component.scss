@@ -3,6 +3,10 @@
   min-height: 90vh;
 }
 
+.header {
+  margin: 0;
+}
+
 .table-item {
   background-color: #00000020;
 
@@ -58,10 +62,19 @@
   margin: auto;
 }
 
+.scoreboard-wrapper {
+  background-image: url("../../../assets/bg_scoreboard.svg");
+  background-repeat: repeat;
+  background-position: left top;
+  background-size: 400px;
+  padding-top: 18px;
+}
+
 // desktop
 @media (min-width:801px) {
   .scoreboard-wrapper {
-    padding: 0 4vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
   }
 
   .header {
