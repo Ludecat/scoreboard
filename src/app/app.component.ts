@@ -11,7 +11,7 @@ import {RankingItem} from "./interfaces/ranking-item";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  fetchDataAfterSeconds = 120;
+  fetchDataAfterSeconds = 10;
   ludecampFetchAfterSeconds = 30;
 
   subscriptions: Subscription[] = [];
