@@ -1,17 +1,17 @@
 <div class="scoreboard-wrapper">
   <h2 class="header">Scoreboard</h2>
-  <ng-container class="table">
-    <div class="table-header">
-      <h3 class="table-rank"></h3>
+  <div class="hide-on-desktop">
+    <ng-container class="table">
+      <div class="table-header">
+        <h3 class="table-rank"></h3>
 
-      <!-- Teamname(empty) -->
-      <h3 class="table-teamname"></h3>
+        <!-- Teamname(empty) -->
+        <h3 class="table-teamname"></h3>
 
-      <!-- POINTS (displayed) -->
-      <h3 class="table-points">Points</h3>
-    </div>
-    <ng-container *ngIf="rankingItems">
-      <div class="hide-on-desktop">
+        <!-- POINTS (displayed) -->
+        <h3 class="table-points">Points</h3>
+      </div>
+      <ng-container *ngIf="rankingItems">
         <ng-container *ngFor="let item of rankingItems; let i = index">
           <div class="table-item"
                [class.first-rank]="i == 0"
@@ -23,46 +23,67 @@
             <div class="table-points">{{item.points}}</div>
           </div>
         </ng-container>
-      </div>
-      <div class="hide-on-mobile">
-        <ng-container *ngIf="rankingItems.length <= 16; else over16Teams">
-          <ng-container *ngFor="let item of rankingItems; let i = index">
-            <div class="table-item"
-                 [class.first-rank]="i == 0"
-                 [class.second-rank]="i == 1"
-                 [class.third-rank]="i == 2"
-            >
-              <div class="table-rank">{{i + 1}}</div>
-              <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
-              <div class="table-points">{{item.points}}</div>
-            </div>
-          </ng-container>
-        </ng-container>
-        <ng-template #over16Teams>
-          <ng-container *ngIf="(showPage | async) == 1">
-            <ng-container *ngFor="let item of rankingItems; let i = index">
-              <div *ngIf="i < rankingItems.length/2" class="table-item"
-                   [class.first-rank]="i == 0"
-                   [class.second-rank]="i == 1"
-                   [class.third-rank]="i == 2"
-              >
-                <div class="table-rank">{{i + 1}}</div>
-                <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
-                <div class="table-points">{{item.points}}</div>
-              </div>
-            </ng-container>
-          </ng-container>
-          <ng-container *ngIf="(showPage | async) == 2">
-            <ng-container *ngFor="let item of rankingItems; let i = index">
-              <div *ngIf="i >= rankingItems.length/2" class="table-item">
-                <div class="table-rank">{{i + 1}}</div>
-                <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
-                <div class="table-points">{{item.points}}</div>
-              </div>
-            </ng-container>
-          </ng-container>
-        </ng-template>
-      </div>
+      </ng-container>
     </ng-container>
-  </ng-container>
+  </div>
+  <div class="hide-on-mobile">
+    <div class="table-container">
+      <div class="table left-table">
+        <div class="table-header">
+          <h3 class="table-rank"></h3>
+
+          <!-- Teamname(empty) -->
+          <h3 class="table-teamname"></h3>
+
+          <!-- POINTS (displayed) -->
+          <h3 class="table-points">Points</h3>
+        </div>
+        <ng-container *ngIf="rankingItems">
+          <div class="grid-container">
+            <ng-container *ngFor="let item of rankingItems; let i = index">
+              <ng-container *ngIf="i < rankingItems.length / 2">
+                <div class="table-item grid-item"
+                     [class.first-rank]="i == 0"
+                     [class.second-rank]="i == 1"
+                     [class.third-rank]="i == 2"
+                >
+                  <div class="table-rank">{{i + 1}}</div>
+                  <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
+                  <div class="table-points">{{item.points}}</div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+      <div class="table right-table">
+        <div class="table-header">
+          <h3 class="table-rank"></h3>
+
+          <!-- Teamname(empty) -->
+          <h3 class="table-teamname"></h3>
+
+          <!-- POINTS (displayed) -->
+          <h3 class="table-points">Points</h3>
+        </div>
+        <ng-container *ngIf="rankingItems">
+          <div class="grid-container">
+            <ng-container *ngFor="let item of rankingItems; let i = index">
+              <ng-container *ngIf="i >= rankingItems.length / 2">
+                <div class="table-item grid-item"
+                     [class.first-rank]="i == 0"
+                     [class.second-rank]="i == 1"
+                     [class.third-rank]="i == 2"
+                >
+                  <div class="table-rank">{{i + 1}}</div>
+                  <div class="table-teamname">[{{item.tag}}] {{item.name}}</div>
+                  <div class="table-points">{{item.points}}</div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>

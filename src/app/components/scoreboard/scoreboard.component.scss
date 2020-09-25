@@ -8,7 +8,7 @@
 }
 
 .table-item {
-  background-color: #00000020;
+  background-color: #00000030;
 
   &.first-rank {
     background-color: goldenrod;
@@ -73,12 +73,21 @@
 // desktop
 @media (min-width:801px) {
   .scoreboard-wrapper {
-    padding-left: 4vw;
-    padding-right: 4vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 
   .header {
     font-size: 5vh;
+  }
+
+  .table-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .table {
+    min-width: 48%;
   }
 
   .table-header, .table-item {
