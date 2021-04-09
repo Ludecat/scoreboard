@@ -1,0 +1,157 @@
+<html>
+<head>
+    <script src="https://unpkg.com/vue@next/dist/vue.global.prod.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Scoreboard</title>
+</head>
+<body>
+    <div id="app" class="scoreboard">
+        <p class="scoreboard__title">Scores after {{currentGame}}</p>
+        <table v-if="mode === 'detailed'" class="scoreboard__table scoreboard__table--left">
+            <tr class="table__headline">
+                <th></th>
+                <th>Team</th>
+                <th>Points</th>
+                <th></th>
+                <!-- <th>before</th> -->
+                <!-- <th>Round 1</th>
+                <th v-if="rounds > 1">Round 2</th>
+                <th v-if="rounds > 2">Round 3</th> -->
+            </tr>
+            <tr v-for="(entry, i) in rankingSorted.slice(0, Math.floor(rankingSorted.length/2))">
+                <td class="row__rank"> {{entry.newrank}}</td>
+                <td class="row__name">[{{entry.tag}}] {{entry.name}} <img v-if="entry.change == '+'" src="arrow-up.svg" class="arrow">
+                    <img v-else-if="entry.change == '-'" src="arrow-down.svg" class="arrow"></td>
+                <td>{{entry.total}}</td>
+                <td class="row__points-gained">+{{entry.round1 + (entry.round2 !== undefined ? entry.round2 : 0) + (entry.round3 !== undefined ? entry.round3 : 0) }}</td>
+                <!-- <td class="row__points-gained">+{{entry.round1 + entry.round2 + entry.round3}}</td> -->
+                <!-- <td>{{entry.before}}</td> -->
+                <!-- <td>+ {{entry.round1}}</td>
+                <td v-if="rounds > 1">+ {{entry.round2}}</td>
+                <td v-if="rounds > 2">+ {{entry.round3}}</td> -->
+            </tr>
+        </table>
+        <table v-if="mode === 'detailed'" class="scoreboard__table">
+            <tr class="table__headline">
+                <th></th>
+                <th>Team</th>
+                <th>Points</th>
+                <th></th>
+                <!-- <th>before</th> -->
+                <!-- <th>Round 1</th>
+                <th v-if="rounds > 1">Round 2</th>
+                <th v-if="rounds > 2">Round 3</th> -->
+            </tr>
+            <tr v-for="(entry, i) in rankingSorted.slice(Math.floor(rankingSorted.length/2), rankingSorted.length)">
+                <td class="row__rank"> {{entry.newrank}}</td>
+                <td class="row__name">[{{entry.tag}}] {{entry.name}} <img v-if="entry.change == '+'" src="arrow-up.svg" class="arrow">
+                    <img v-else-if="entry.change == '-'" src="arrow-down.svg" class="arrow"></td>
+                <td>{{entry.total}}</td>
+                <td class="row__points-gained">+{{entry.round1 + (entry.round2 !== undefined ? entry.round2 : 0) + (entry.round3 !== undefined ? entry.round3 : 0) }}</td>
+                <!-- <td>{{entry.before}}</td> -->
+                <!-- <td>+ {{entry.round1}}</td>
+                <td v-if="rounds > 1">+ {{entry.round2}}</td>
+                <td v-if="rounds > 2">+ {{entry.round3}}</td> -->
+            </tr>
+        </table>
+
+        <table v-else>
+            <tr>
+                <th>tag</th>
+                <th>name</th>
+                <th>points</th>
+            </tr>
+            <tr v-for="entry in rankingSorted">
+                <td>{{entry.tag}}</td>
+                <td>{{entry.name}}</td>
+                <td>{{entry.total}}</td>
+            </tr>
+        </table>
+        <div class="scoarboard_point-distribution">
+            <p class="table__header">Points/round</p>
+            <table class="scoreboard__table">
+                <tr class="table__headline">
+                    <th>place</th>
+                    <th>points</th>
+                </tr>
+                <tr v-for="entry in pointDistribution">
+                    <td>{{entry.place}}</td>
+                    <td>{{entry.points}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="sliding-background"></div>
+
+
+<script>
+    const App = {
+        data() {
+            return {
+                currentGame: 'N/A',
+                mode: 'detailed',
+                ranking: [
+                    {
+                        "tag": "N/A",
+                        "name": "na",
+                        "before": 0,
+                        "round1": 0,
+                        "round2": 0,
+                        "round3": 0,
+                        "total": 0,
+                        "newrank": 1,
+                        "change": "="
+                    },
+                ],
+                pointDistribution: [
+                    {
+                        "place": "1st",
+                        "points": 100
+                    },
+                    {
+                        "place": "2nd",
+                        "points": 90
+                    },
+                    {
+                        "place": "3rd",
+                        "points": 80
+                    },
+                    {
+                        "place": "...",
+                        "points": "..."
+                    },
+                    {
+                        "place": "10th",
+                        "points": 10
+                    }
+                ]
+            }
+        },
+        mounted() {
+            const fetchData = () => {
+                fetch('https://lciodata.herokuapp.com/scoreboard2.json')
+                    .then(res => res.json())
+                    .then(res => {
+                        this.currentGame = res.currentGame
+                        this.mode = res.mode
+                        this.ranking = res.ranking.filter(r => r.name)
+                        this.pointDistribution = res.pointDistribution
+                        this.rounds = res.rounds
+                    })
+            }
+            fetchData()
+            this.interval = setInterval(fetchData, 3000)
+        },
+        computed: {
+            rankingSorted: function() {
+                return [...this.ranking].sort((a,b) => b.total - a.total)
+            }
+        }
+    }
+    const vm = Vue.createApp(App).mount('#app')
+</script>
+</body>
+</html>
