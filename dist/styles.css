@@ -7,7 +7,7 @@
 
 html {
     font-weight: bold;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
 body {
@@ -46,7 +46,7 @@ th {
 }
 
 table {
-    font-size: 1.25em;
+    font-size: 1.7em;
     font-weight: 600;
     border: none;
     border-spacing: 0 0.3em;
@@ -87,15 +87,19 @@ td {
     padding: 0 2em;
 }
 
+.ludecamp__table {
+    font-size: 2.5em;
+}
+
 .row__points-gained {
     color: rgba(0, 0, 0, .6)
 }
 
 .table__header {
-    font-size: 1.4em;
+    font-size: 2.0em;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: .5em;
+    margin-top: .5em;
 }
 
 .scoarboard_point-distribution {
@@ -105,11 +109,27 @@ td {
     padding-left: 1em;
 }
 
-.scoreboard__table--left tr:nth-child(2) {
+.scoreboard__table--ranking tr:nth-child(2) {
     background-color:rgb(205,127,50);
 }
 
-.scoreboard__table--left tr:nth-child(3) {
+.scoreboard__table--ranking tr:nth-child(3) {
+    background-color:rgb(205,127,50);
+}
+
+.scoreboard__table--ranking tr:nth-child(4) {
+    background-color:rgb(205,127,50);
+}
+
+.scoreboard__table--ranking tr:nth-child(5) {
+    background-color:rgb(205,127,50);
+}
+
+.scoreboard__table--nextup {
+    font-size: 2.0em;
+}
+
+.scoreboard__table--nextup tr:nth-child(2) {
     background-color:rgb(205,127,50);
 }
 
